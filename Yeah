@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+    <html>
+        
+        <head>
+            <title>
+                CITS2401 - Notes, Test, 1
+            </title>
+            <link rel = "stylesheet" href="CITS2401 - Test, 1, stylesheet.css"
+        </head>
+        <style>
+            
+        </style>
+        <body>
+            <h1 id = "header1">
+                CITS2401 - Notes
+            </h1>
+            <div id = "intro">
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    Hello everyone, and welcome to my humble notes page. I will now begin to take notes
+                </p>
+                
+            </div>
+            <div id = "Admin">
+                <h2>
+                    Administration
+                </h2>
+                <p>
+                    <ul>
+                        <li>
+                            CITS2401 is a data visualisation unit.
+                        </li>
+                        <li>
+                            CITS2401 helps to:
+                            <ul>
+                                <li>
+                                    Visualise Data
+                                </li>
+                                <li>
+                                    Manipulate Data
+                                </li>
+                                <li>
+                                    Use programming languages to perform calculations
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            CAV(Computer Analysis visualisation) is a core, transferable skill for all.
+                        </li>
+                    </ul>
+                    
+                <!--Where the fuck is the library coming from here? As in, where does HTML get all its fonts, font sizes etc?-->
+                <!--Yeah this section is pointless, get on with the task please-->    
+                </p>
+                <p>
+                    Languages/Libraries:
+                    <ul>
+                        <li>
+                            We will be working in Excel and Python
+                        </li>
+                        <li>
+                            The libraries we will be using are all in Python, and include:
+                            <ul>
+                                <li>
+                                    Matplotlib
+                                </li>
+                                <li>
+                                    Numpy    
+                                </li>
+                                <li>
+                                    SciPy: Data visualisation and numeric processing
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Yeah this is just to see what happens if we create another ~<~p> type thingo
+                </p>
+                <p>
+                    Just something to note, in the lecture slides, Dr.Hassan often uses the ">>>" symbol. This is simply to show how the command line would be entered in the Python IDE. 
+                </p>
+            </div>
+            <div id = "Problem Solving">
+                <h2>
+                    Problem Solving
+                </h2>
+                <p>
+                    <h3>
+                        Problem Solving: A Brief Overview
+                    </h3>
+                    <ul>
+                        <li>
+                            State the Problem
+                        </li>
+                        <li>
+                            Describe the input and output
+                        </li>
+                        <li>
+                            Develop an algorithm 
+                        </li>
+                        <li>
+                            Solve the problem
+                        </li>
+                        <li>
+                            Test the solution (Is it dynamic?)
+                        </li>
+                        
+                    </ul>
+                </p>
+            </div>
+            <section>
+                <p><a href = "http://messivsronaldo.net">Click here for awesome Merch!</a></p>
+            </section>
+            <div>
+                <h2>
+                    Libraries
+                </h2>
+                <p>
+                   <ul>
+                    <li>
+                        Libraries are just things <!--Find the proper word--> which contain useful functions and definitions.
+                    </li>
+                    <li>
+                        Each library is divided into modules.
+                    </li>
+                    <li>
+                        For example, a <p id = "italics">module</p> in the Python standard library is the math module, which contains functions and definitions for maths.
+                        
+                    </li>
+                    <li>
+                        To use a library, we have to import it using the "import" system call(not sure if this actually what its called in Python)
+                    </li>
+                   </ul>
+                </p>
+            </div>
+            <div id = "Lists">
+                <p>
+                    List Operations
+                    <ul>
+                        <li>Concatenation
+                            <ul>
+                                <li>Lists can be concatenated simply by using the "+" operator.</li> 
+                                <li>Lists in Python can also be concatenated by using the ".append()" function. The notation for this is:
+                                
+                                    list_name.append(x)
+                                    
+                                    Where x represents the elements you want to append, for example a number, string or even another list.
+                                    Note however, that if we append another list, this will mean that the list will be added to the list as a single element: The elements inside the added list will not be counted as separate elements in the outer list.
+                                
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Sorting
+                            <ul>
+                                Sorting is achieved through the ".sort()" function.
+                                
+                            </ul>
+                        </li>
+                                
+                      
+                    </ul>
+                </p>            
+            </div>
+        </body>
+        
+    </html>
