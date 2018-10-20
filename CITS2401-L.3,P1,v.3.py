@@ -143,6 +143,7 @@ def plotmicrocar(x,y):
         
     print(miv_legend_array)
     
+    #Currently, we can see that this whole 'ax' shebang works, but we're not sure why
     ax = plt.subplot(2,2,3)
     ax.set_xmargin(1)
     ax.set_ymargin(1)
@@ -150,7 +151,7 @@ def plotmicrocar(x,y):
         plt.scatter([ex_hor_disp[i]],[ex_vert_disp[i]], marker = 'o', c = np.random.rand(3,) )
         plt.xlabel = "Horizontal Displacement"
         plt.ylabel = "Vertical Displacement"
-    
+    plt.title('E')
     plt.legend([x for x in miv_legend_array])
     
     #This is the bottom right subplot
@@ -170,7 +171,7 @@ def plotmicrocar(x,y):
         ax.xlabel = "Horizontal Displacement"
         ax.ylabel = "Vertical Displacement"
         
- 
+    plt.title('Actual')
     ax.legend([x for x in car_legend_array])
     plt.show()
     
