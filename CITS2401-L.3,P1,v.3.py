@@ -19,7 +19,6 @@ def microcar(x,y):
             #This is us declaring and initalising variables in a local scope to reset for each car
             vert_displacement = 0
             hor_displacement = 0
-            
             #This is us defining our measurements of displacement and distance
             ex_distance = 0
             act_distance = 0

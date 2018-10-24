@@ -14,14 +14,17 @@ def microcar(x,y):
     
     
     for i in range(len(x)):
+        
+        #This is us defining our measurements of displacement and distance, we can do so globally(outside each for loop) because it's calculated for each file just once
+        ex_distance = 0
+        act_distance = 0
+            
         with open(x[i],'r') as ex_inputfile:
             #This is us declaring and initalising variables in a local scope to reset for each car
             vert_displacement = 0
             hor_displacement = 0
             
-            #This is us defining our measurements of displacement and distance
-            ex_distance = 0
-            act_distance = 0
+            
             
             
             
@@ -46,6 +49,10 @@ def microcar(x,y):
                     hor_displacement -= (int(instruction[1])*int(instruction[2]))
                 
                 ex_distance += (int(instruction[1])*int(instruction[2]))
+            
+            vert_displacement = round(vert_displacement,2)
+            hor_displacement = round(hor_displacement,2)
+            ex_distance = round(ex_distance,2)
             
             
             #This is used to add the final expected displacements to the array
@@ -83,6 +90,10 @@ def microcar(x,y):
                 
                 act_distance += (int(action[1])*int(action[2]))
                 
+            vert_displacement = round(vert_displacement,2)
+            hor_displacement = round(hor_displacement,2)
+            act_distance = round(act_distance,2)
+            
             #This is used to add the final expected displacements to the array
             act_hor_disp = np.append(act_hor_disp,hor_displacement)
             act_vert_disp = np.append(act_vert_disp,vert_displacement)
@@ -90,6 +101,7 @@ def microcar(x,y):
             #Likewise, this is used to add the final expected distance travelled to the array
             act_dist = np.append(act_dist,act_distance)
             
+    
     return ex_hor_disp, ex_vert_disp, act_hor_disp, act_vert_disp, ex_dist, act_dist
 
 
