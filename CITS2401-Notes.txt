@@ -1,0 +1,18 @@
+CITS2401 Notes
+
+Excel
+
+Relative and Absolute References
+	- The majority of cell references used in Excel are relative. That is, they take the content of a cell in terms of a position relative to themselves. So if cell C1 were to reference cell B2, then if we copied the formula from C1 to C2, it would reference cell B3. This is because the formula in cell C1 tells it to use the value from a cell “1 column to the left and 1 row down.”. Therefore, C2 also takes the value “1 column to the left and 1 row down”. 
+	- To confirm then, if we had say, cell B2 reference cell A1, then copied this formula into cell A2, cell A2 would display a “#REF” error, because we’re telling A2 to reference the value of a cell 1 cell to the left and 1 cell above. Although there is a cell above A2 (A1), there is no cell to the left of A2, so we get an error. 
+	- Absolute References: Absolute references can fix the value of a position for all references, and we do so by preceding the component with a “$” sign. For example:
+
+
+	$C2 #This just fixes the column
+
+	C$2 #This fixes the row
+
+	$C$2 #This fixes both the row and column.
+
+
+	Whatever component of the position is preceded by the $ sign will be fixed. That is, if cell D1 referenced $C2, and we then copied this formula into cell E3, E3 would reference cell C3, because the column component has been fixed in this case. 
