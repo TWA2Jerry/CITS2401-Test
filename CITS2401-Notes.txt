@@ -16,3 +16,158 @@ Relative and Absolute References
 
 
 	Whatever component of the position is preceded by the $ sign will be fixed. That is, if cell D1 referenced $C2, and we then copied this formula into cell E3, E3 would reference cell C3, because the column component has been fixed in this case. 
+
+	- Referencing other worksheets: Remember that each single “sheet”, i.e. array of cells, is known as a worksheet. To reference a cell from another worksheet, we precede the cell position with the sheet name like so:
+
+	[Sheet_name]![cell_position]
+
+	So for example, if we wanted to reference the cell B2 from sheet2, we would use the following reference:
+
+	sheet2!B2
+
+	- Ranges: You can also reference a range of cells, i.e., an area containing multiple rows and columns, by using the colon operator:
+
+		[top_let_cell_position][bottom_right_cell_position]
+
+Errors
+	- #REF!: This error means that you referenced an invalid cell, or one that doesn’t exist. 
+	- #DIV/0!: Divide by zero error.
+	- #NAME?: This error indicates you used an unrecognised name.
+	- #N/A!: A formula or function inside a formula couldn’t find the referenced data.
+	- #VALUE: The wrong type of operand or function argument was used.
+	- #####: This isn’t actually an error, it just means that the cell couldn’t fit all the data to display. 
+
+
+Data formats
+	- The underlying value of a cell (i.e., as a string, text etc.) can’t change. However, we can change how the data is displayed through a specific format. 
+	- Date and Time: All dates are really just numbers which represent the number of days after some specified date. In Microsoft systems, this date is 1899, while for MacOS systems, this date is 1 Jan 1904. 
+
+
+Functions
+	- Functions in Excel are called via the following means:
+
+		= function_name(arg1,arg2,arg3…)
+
+	Interesting Formulas
+	- “&” This concatenates the string on either side of the operator, for example, something like:
+
+	“I want” & B1 & “just like” & B2
+
+	Will display the text “I want something just like this” in the cell if B1 contains the text “something” and B2 contains the text “this”. 
+
+	
+
+
+Structured Arrays
+	- Structured Array elements can be accessed via the following notation:
+
+		array_name[element_number][characteristic]
+
+
+Mathematics
+	- We can perform complex operations on functions and variables etc through a module named “sympy”
+ 	- To do so, we use the following command:
+
+		from sympy import symbols, diff, integrate
+
+	- We can then define our variables as need be, and perform operations on them, for instance:
+
+		y = x**2
+		
+		print(diff(y))
+
+	- Printing: By default, the Sympy results will be of the syntax used by Python’s(at least similar). To beautify the result, we can use the init_session() package. To do so, we use the following command:
+
+		from sympy import init_session
+
+		init_session()
+
+	- By including the init_session() code, we’ll be taken to the command line, and we have to write our code there. At this point, we don’t believe there’s anyway to write the code for complicated equations and operations in the source file. 
+	- Also note that while the result still doesn’t look like its printed in a beautified way, we currently believe that’s simply because of the default way which the computer prints. We’re not aware of any other way to beautify it more. 
+
+
+	- Differentiating: To differentiate a single variable function, we can just use the following commands:
+
+		y = [f(x)]
+		diff(y)
+
+	- If we want to differentiate a multivariable function, we use the following notation:
+
+		f = [f(x,y)]
+		diff(f,x) #Differentiates the function w.r.t x
+		diff(f,y)	#Differentiates the function w.r.t y
+
+	- In addition, we can also specify how many times we want to differentiate the equation:
+
+		diff([function],[variable_to_diff_w.r.t],n)
+
+		#Here, n represents the order of the differential we want
+
+	- Furthermore, we can differentiate w.r.t one variable then another through the following notation:
+
+		diff(diff([function],[1st variable to diff w.r.t]),[2nd variable to diff w.r.t])
+
+
+	- Integrating: To do an ordinary, indefinite integral, we can use the following notation:
+
+		integrate([f],[var])
+
+		#Here, f just represents some function of variables which has already been defined, e.g through f = x**2 + y. Meanwhile, var represents the variable to integrate w.r.t. Note however, that if your function f is just a function of a single variable, the [var] argument can be omitted. 
+
+	- To perform a definite integral, we use the following code:
+
+		integrate([f],([var],[lower],[upper]))
+
+		#Here, f again represents some function of variables including the variable to integrate w.r.t, var, while lower and upper represent the lower and upper bounds of the integral respectively. 
+
+	- Complex integrals: For certain integrals, we can often get a piecewise result, for example, integrating w.r.t x in the following:
+
+		f = x**n
+		integrate(f)
+
+		#The result here depends on n, because if n is -1, then the integral is log(x), and if n is any other real number, then the integral is x^(n+1)/n+1. We therefore get the following output:
+
+	/ n + 1             
+|x                  
+|------  for n != -1
+<n + 1              
+|                   
+|log(x)   otherwise 
+\                   
+
+
+	- Solving Equations: To solve equations, there are two main ways:
+
+		from sympy.solvers import solve
+		solve([f(x1,x2,x3…)],[xn])
+
+		#Here, x1, x2, x3 represent the arguments which define the function f, while xn represents the variable we want to find the solution for. IMPORTANT: In this method, we assume that f() == 0. 
+		#Also, we are allowed to omit the xn argument if our function is a function of a single variable. 
+
+		ALTERNATIVE>>>>
+
+		from sympy.solvers import solve
+		from sympy.solvers import Eq
+
+		solve(Eq([f(x1,x2,x3…)],[g(x1,x2,x3…)]),xn)
+
+		#Here, we have a method which is slightly more robust as it means we don’t have to assume that the function is equal to zero. Instead, we’re setting f() equal to g(). 
+
+	- In essence, both of the above methods do the same thing, except the first method assumes that the expression you put into f() is equal to zero. This means that sometimes, a little more work is needed to rearrange everything so your expression really is 0. 
+	- To solve for a system of equations, you just put in multiple equations into the solve function with either method, but you have to put the system of equations in brackets. For example:
+
+		x,y,z = symbols(‘x y z’)
+		#solve for the system of equations where z = 4x, x =y, z = x**2+y**2
+		
+		#Method 1
+		solve([z-4*x, x-y,z-x**2-y**2])
+
+
+		#Method 2
+		solve([Eq(z,4x),Eq(x,y),Eq(z,x**2+y**2)])
+
+ 		
+
+
+
+
